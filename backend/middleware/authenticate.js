@@ -5,7 +5,7 @@ const authenticate = async (req, res, next) => {
     try {
 
         const token = req.cookies.jwtoken;
-        const verifyToken = jwt.verify(token, process.env.SECRET);
+        const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
 
         const rootUser = await Patient.findOne({_id:verifyToken._id, "tokens.token":token});
 
@@ -21,7 +21,7 @@ const authenticate = async (req, res, next) => {
         
     } catch (error) {
         res.status(401).send("Unauthorized:No token provided");
-        console.log(err);
+        console.log(error);
     }
 }
 

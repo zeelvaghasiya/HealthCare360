@@ -15,6 +15,8 @@ import SignIn from "./components/SignIn/SignIn";
 import SignUp from "./components/Signup/Signup";
 import Doctor from "./components/Doctor/Doctor";
 import Appointment from "./components/Appointment/Appointment";
+import Profile from "./components/Profile/Profile";
+import Logout from "./components/Logout/Logout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,9 +27,11 @@ const router = createBrowserRouter(
         <Route path="doctor" element={<Doctor />} />
         <Route path="appointments" element={<Appointment />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="profile" element={<Profile />} />
       </Route>
       <Route path="signin" element={<SignIn />} />
       <Route path="signup" element={<SignUp />} />
+      <Route path="logout" element={<Logout />} />
     </>
 
   )

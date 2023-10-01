@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X, Zap, User } from "lucide-react";
 
 const menuItems = [
   {
@@ -74,6 +74,9 @@ function Header() {
             </ul>
           </div>
           <div className="hidden lg:block">
+            <Link to="/profile">
+              <User className="inline-block text-gray-700 h-9 w-9 rounded-full mr-1 border-2 border-gray-700 p-1" />
+            </Link>
             <Link
               to="/signin"
               className="rounded-md bg-transparent px-3 py-2 mr-2 text-sm font-semibold text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
@@ -82,9 +85,15 @@ function Header() {
             </Link>
             <Link
               to="/signup"
-              className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+              className="rounded-md border border-black px-3 py-2 mr-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
             >
               Sign Up
+            </Link>
+            <Link
+              to="/logout"
+              className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Log Out
             </Link>
           </div>
           <div className="lg:hidden">
@@ -154,6 +163,12 @@ function Header() {
                       className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
                     >
                       <Link to="signup">Sign Up</Link>
+                    </button>
+                    <button
+                      type="button"
+                      className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                    >
+                      <Link to="/logout">Log Out</Link>
                     </button>
                   </div>
                 </div>

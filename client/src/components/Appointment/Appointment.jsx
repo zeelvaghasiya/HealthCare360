@@ -25,8 +25,8 @@ function Appointment() {
             }
 
         } catch (error) {
-            console.log(err);
-            navigate("/");
+            console.log(error);
+            navigate("/signin");
         }
     }
 

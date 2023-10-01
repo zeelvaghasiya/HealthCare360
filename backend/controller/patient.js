@@ -61,6 +61,7 @@ const signinPatient = async (req, res) => {
     const { email, password } = req.body;
 
     console.log("password",password,"\n","email",email);
+    console.log("1");
 
     if (!email || !password) {
       return res.status(400).json({ error: "Plz filled the field properly" });
@@ -71,15 +72,15 @@ const signinPatient = async (req, res) => {
     console.log(userLogin);
 
     if (userLogin) {
-      const isMatch = bcrypt.compare(password, userLogin.password);
+      const isMatch = await bcrypt.compare(password, userLogin.password);
 
       const token = await userLogin.generateAuthToken();
       console.log(token);
 
+
       res.cookie("jwtoken", token, {
-        expires: new Date(Date.now() + 30000),
+        expires: new Date(Date.now() + 86400000),
         httpOnly: true,
-        secure: true
       });
 
       console.log("kem chho");
