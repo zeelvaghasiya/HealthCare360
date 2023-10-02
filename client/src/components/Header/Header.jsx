@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X, Zap, User } from "lucide-react";
+import { AppContext } from "../ContextProvider/ContextProvider";
 
 const menuItems = [
   {
@@ -28,6 +29,89 @@ const menuItems = [
 ];
 
 function Header() {
+  const { state, dispatch } = useContext(AppContext);
+
+  const RenderMenu = () => {
+    if (state) {
+      return (
+        <>
+          <div className="hidden lg:block">
+            <Link to="/profile">
+              <User className="inline-block text-black font-semibold h-9 w-9 rounded-full mr-4 border border-black p-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black" />
+            </Link>
+            <Link
+              to="/logout"
+              className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black hover:bg-black hover:text-white transition duration-300 ease-in-out"
+            >
+              Log Out
+            </Link>
+          </div>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <div className="hidden lg:block">
+            <Link
+              to="/signin"
+              className="rounded-md bg-transparent px-3 py-2 mr-2 text-sm font-semibold text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Sign In
+            </Link>
+            <Link
+              to="/signup"
+              className="rounded-md border border-black px-3 py-2 mr-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              Sign Up
+            </Link>
+          </div>
+        </>
+      );
+    }
+  };
+
+  const RenderHambergerMenu = () => {
+    if (state) {
+      return (
+        <>
+          <div className="mt-6 space-y-2">
+            <button
+              type="button"
+              className="w-full rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              <Link to="/profile">View Profile</Link>
+            </button>
+            <button
+              type="button"
+              className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              <Link to="/logout">Log Out</Link>
+            </button>
+          </div>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <div className="mt-6 space-y-2">
+            <button
+              type="button"
+              className="w-full rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              <Link to="/signin">Sign In</Link>
+            </button>
+            <button
+              type="button"
+              className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+            >
+              <Link to="signup">Sign Up</Link>
+            </button>
+          </div>
+        </>
+      );
+    }
+  };
+
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const toggleMenu = () => {
@@ -73,7 +157,7 @@ function Header() {
               ))}
             </ul>
           </div>
-          <div className="hidden lg:block">
+          {/* <div className="hidden lg:block">
             <Link to="/profile">
               <User className="inline-block text-gray-700 h-9 w-9 rounded-full mr-1 border-2 border-gray-700 p-1" />
             </Link>
@@ -95,7 +179,8 @@ function Header() {
             >
               Log Out
             </Link>
-          </div>
+          </div> */}
+          <RenderMenu />
           <div className="lg:hidden">
             <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
           </div>
@@ -151,7 +236,7 @@ function Header() {
                       ))}
                     </nav>
                   </div>
-                  <div className="mt-6 space-y-2">
+                  {/* <div className="mt-6 space-y-2">
                     <button
                       type="button"
                       className="w-full rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
@@ -170,7 +255,8 @@ function Header() {
                     >
                       <Link to="/logout">Log Out</Link>
                     </button>
-                  </div>
+                  </div> */}
+                  <RenderHambergerMenu />
                 </div>
               </div>
             </div>

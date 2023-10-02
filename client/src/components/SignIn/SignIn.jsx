@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { AppContext } from "../ContextProvider/ContextProvider"; ""
 
 function SignIn() {
+
+  const {state, dispatch} = useContext(AppContext);
+
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -29,6 +33,7 @@ function SignIn() {
     if (res.status === 400 || !data) {
       window.alert("Invalid Credentials");
     } else {
+      dispatch({type:"USER", payload:true});
       window.alert("Successfull Signin");
 
       navigate("/");

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import {
@@ -17,6 +17,7 @@ import Doctor from "./components/Doctor/Doctor";
 import Appointment from "./components/Appointment/Appointment";
 import Profile from "./components/Profile/Profile";
 import Logout from "./components/Logout/Logout";
+import { AppProvider } from "./components/ContextProvider/ContextProvider";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,6 +40,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AppProvider>
+      <RouterProvider router={router} />
+    </AppProvider>
   </React.StrictMode>
 );

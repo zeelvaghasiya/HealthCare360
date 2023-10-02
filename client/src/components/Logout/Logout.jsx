@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../ContextProvider/ContextProvider"; ""
 
 function Logout() {
+
+  const {state, dispatch} = useContext(AppContext);
+
   const navigate = useNavigate();
 
   const callUserLogout = async () => {
@@ -27,6 +31,7 @@ function Logout() {
       }
     } catch (error) {
       console.log(error);
+      dispatch({type:"USER", payload:false});
       navigate("/signin");
     }
   };
