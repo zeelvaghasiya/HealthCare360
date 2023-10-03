@@ -83,7 +83,6 @@ const signinPatient = async (req, res) => {
         httpOnly: true,
       });
 
-      console.log("kem chho");
 
       if (!isMatch) {
         res.status(400).json({ error: "Invalid Credientials:" });
@@ -98,9 +97,21 @@ const signinPatient = async (req, res) => {
   }
 };
 
-const getPatientById = async (req, res) => {
-  res.json(res.patient);
-};
+const getPatientById = async(req, res) => {
+  try {
+    const patientId = req.params.id;
+    console.log(patientId);
+    const patient = await Patient.find({_id : patientId});
+
+    if (!patient) {
+      return res.status(404).json({ message: 'Patient not found' });
+    }
+    res.status(200).json(patient);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+}
 
 const updatePatientById = async (req, res) => {
   if (req.body.firstName != null) {

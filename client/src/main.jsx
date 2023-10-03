@@ -18,6 +18,7 @@ import Appointment from "./components/Appointment/Appointment";
 import Profile from "./components/Profile/Profile";
 import Logout from "./components/Logout/Logout";
 import { AppProvider } from "./components/ContextProvider/ContextProvider";
+import Gallary from "./components/Gallary/Gallary";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
         <Route path="appointments" element={<Appointment />} />
         <Route path="contact" element={<Contact />} />
         <Route path="profile" element={<Profile />} />
+        <Route path="gallary" element={<Gallary />} />
       </Route>
       <Route path="signin" element={<SignIn />} />
       <Route path="signup" element={<SignUp />} />

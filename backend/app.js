@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const app = express();
 const dbConnect = require("./db/connect");
@@ -18,11 +19,12 @@ const patientRoute = require("./routes/patient");
 const doctorRoute = require("./routes/doctor");
 const medicalRecordRoute = require("./routes/medicalRecord");
 const appointmentRoute = require("./routes/appointment");
+const authenticate = require('./middleware/authenticate');
 
 app.get("/", (req,res)=>{
     res.send("this is my home page");
 })
-
+  
 app.use("/api-patient", patientRoute);
 app.use("/api-doctor", doctorRoute);
 app.use("/api-medicalrecord", medicalRecordRoute);

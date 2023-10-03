@@ -157,29 +157,6 @@ function Header() {
               ))}
             </ul>
           </div>
-          {/* <div className="hidden lg:block">
-            <Link to="/profile">
-              <User className="inline-block text-gray-700 h-9 w-9 rounded-full mr-1 border-2 border-gray-700 p-1" />
-            </Link>
-            <Link
-              to="/signin"
-              className="rounded-md bg-transparent px-3 py-2 mr-2 text-sm font-semibold text-black hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Sign In
-            </Link>
-            <Link
-              to="/signup"
-              className="rounded-md border border-black px-3 py-2 mr-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Sign Up
-            </Link>
-            <Link
-              to="/logout"
-              className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-            >
-              Log Out
-            </Link>
-          </div> */}
           <RenderMenu />
           <div className="lg:hidden">
             <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
@@ -236,26 +213,6 @@ function Header() {
                       ))}
                     </nav>
                   </div>
-                  {/* <div className="mt-6 space-y-2">
-                    <button
-                      type="button"
-                      className="w-full rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    >
-                      <Link to="/signin">Sign In</Link>
-                    </button>
-                    <button
-                      type="button"
-                      className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    >
-                      <Link to="signup">Sign Up</Link>
-                    </button>
-                    <button
-                      type="button"
-                      className="w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    >
-                      <Link to="/logout">Log Out</Link>
-                    </button>
-                  </div> */}
                   <RenderHambergerMenu />
                 </div>
               </div>

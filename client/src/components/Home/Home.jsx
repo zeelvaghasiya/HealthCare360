@@ -3,8 +3,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { DollarSign, Filter, Menu, Moon, Star, X, Zap } from "lucide-react";
-import Feedback from "../Feedback/Feedback";
-import Carousel from "../Carousel/Carousel"
 
 const images = [
   'main_hos.jpg',
@@ -182,7 +180,6 @@ function Home() {
       </section>
 
       <div className="container mx-auto p-4">
-      <Carousel images={images} />
     </div>
       <hr className="mt-6" />
     </div>

@@ -24,15 +24,6 @@ const patientSchema = new mongoose.Schema({
     trim: true,
     minlength: 4, // Adjust the minimum length as needed
     maxlength: 100, // Adjust the maximum length as needed
-    // validate: {
-    //   validator: function (password) {
-    //     // For example, to require at least one uppercase letter, one lowercase letter, one digit, and one special character:
-    //     const passwordRegex =
-    //       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    //     return passwordRegex.test(password);
-    //   },
-    //   message: "Password must meet the requirements.",
-    // },
   },
   confirmPassword: {
     type: String,
@@ -40,15 +31,6 @@ const patientSchema = new mongoose.Schema({
     trim: true,
     minlength: 4, // Adjust the minimum length as needed
     maxlength: 100, // Adjust the maximum length as needed
-    // validate: {
-    //   validator: function (password) {
-    //     // For example, to require at least one uppercase letter, one lowercase letter, one digit, and one special character:
-    //     const passwordRegex =
-    //       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    //     return passwordRegex.test(password);
-    //   },
-    //   message: "Password must meet the requirements.",
-    // },
   },
   dateOfBirth: {
     type: Date,
@@ -122,8 +104,6 @@ const patientSchema = new mongoose.Schema({
       description: {
         type: String,
         trim: true,
-        minlength: 2,
-        maxlength: 50,
       },
     },
   ],

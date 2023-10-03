@@ -3,9 +3,11 @@ const Patient = require("../models/patient");
 
 const authenticate = async (req, res, next) => {
     try {
-
+        console.log("zeel");
         const token = req.cookies.jwtoken;
+        console.log("token",token);
         const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
+        console.log("verifyToken",verifyToken);
 
         const rootUser = await Patient.findOne({_id:verifyToken._id, "tokens.token":token});
 
